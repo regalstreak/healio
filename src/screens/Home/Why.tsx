@@ -34,8 +34,8 @@ export default (props: IWhyProps) => {
                         Researchers
 
                     <div className='singleText'>
-                        Researchers do not have to worry about selling their data to third parties.
-                        All this will be handled by healio. All researcher's data will be kept in
+                        Researchers do not have to worry about selling their data to third parties
+                        ever again. All researcher's data will be kept in
                         secure <b>smart contracts</b> so they do not get <b>tampered</b> or deleted. Researchers 
                         would not have to worry about keeping their data <b>secure</b> as the buying firms
                         will be bound under <b>strict policies</b> of usage of their research data.

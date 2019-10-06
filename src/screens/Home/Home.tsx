@@ -10,10 +10,12 @@ import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Slide from '@material-ui/core/Slide';
+import { Link } from 'react-router-dom'
 
 import heroImage from '../../library/res/images/hero-free.svg';
 import Why from './Why';
 import What from './What';
+import HFooter from './HFooter';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -106,7 +108,10 @@ export default (props: IHomeProps) => {
                         </div>
 
                         <div className='buttons-container'>
+
                             <Button
+                                component={Link}
+                                to="/login"
                                 variant="outlined"
                                 className={classes.button}
 
@@ -114,6 +119,8 @@ export default (props: IHomeProps) => {
                                 Login
                             </Button>
                             <Button
+                                component={Link}
+                                to="/form"
                                 variant="contained"
                                 className={classes.button + ' ' + classes.try + ' ' + classes.blueButton}
 
@@ -147,7 +154,8 @@ export default (props: IHomeProps) => {
                     <Button
                         variant="contained"
                         className={classes.buttonBottom + ' ' + classes.try + ' ' + classes.blueButton}
-
+                        component={Link}
+                        to="/form"
                     >
                         Try Healio
                     </Button>
@@ -164,6 +172,9 @@ export default (props: IHomeProps) => {
             </div>
             <div>
                 <Why />
+            </div>
+            <div>
+                <HFooter />
             </div>
 
 

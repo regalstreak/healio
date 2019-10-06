@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../library/res/css/Home.css'
 import '../../library/res/css/What.css'
-
+import secureImage from "../../library/res/images/secure.svg";
 interface IWhatProps {
 
 }
@@ -31,6 +31,8 @@ export default (props: IWhatProps) => {
                 Lastly patients have had little <b>control</b> over their health information. 
                 In research, participants are paid for their data but are then separated from any <b>future use</b> of that data.
             </div>
+
+            <img src={secureImage} className='secureImage' alt=""/>
         </div>
     )
 }

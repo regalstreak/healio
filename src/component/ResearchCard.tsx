@@ -34,22 +34,18 @@ export default function SimpleCard() {
     <Card className={classes.card}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Word of the Day
+          #cardiovascular
         </Typography>
         <Typography variant="h5" component="h2">
-          be
-          {bull}
-          nev
-          {bull}o{bull}
-          lent
+          Research Name
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          adjective
+          Researcher Name
         </Typography>
-        <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
+        <Typography variant="body2" component="p">  
+        Total funds
+        <br/>
+        Total patientsd 
         </Typography>
       </CardContent>
       <CardActions>

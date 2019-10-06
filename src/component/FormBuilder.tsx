@@ -18,6 +18,7 @@ export default (props: INewComponentProps) => {
 		<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
 			<TextField
 				id="standard-name"
+				label='Key'
 				className={classes.textField}
 				value={fields[index]}
 				// @ts-ignore: Unreachable code error
@@ -40,6 +41,7 @@ export default (props: INewComponentProps) => {
 			:
 				<TextField
 				id="standard-name"
+				label='Value'
 				className={classes.textField}
 				value={value[index]}
 				// @ts-ignore: Unreachable code error
@@ -71,7 +73,7 @@ export default (props: INewComponentProps) => {
 				</div>
 			</form>
 			<div style={{ textAlign: 'center' }}>
-				<Fab size="small" color="secondary" aria-label="add" onClick={() => {
+				<Fab size="small" aria-label="add" className={classes.blueButton} onClick={() => {
 					setNumInputs(num => num + 1);
 					setFields(allfields => [...allfields, '']);
 					setValues(allValues => [...allValues, '']);
@@ -98,6 +100,10 @@ const useStyles = makeStyles((theme: Theme) =>
 		outer: {
 			width: '40vw',
 			marginLeft: '30vw'
+		},
+		blueButton: {
+			background: '#2A64D6',
+			color: 'white'
 		}
 	}),
 );

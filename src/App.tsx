@@ -7,6 +7,7 @@ import { Switch, Route } from 'react-router-dom';
 import MainForm from './component/MainForm';
 import Home from './screens/Home/Home';
 import Dash from './screens/Dash/Dash';
+import Login from './screens/Login';
 
 const App: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const App: React.FC = () => {
         <Route path='/form' component={MainForm} />
         <Route path='/testtest' component={TestTest} />
         <Route path='/dash' component={Dash} />
+        <Route path='/login' component={Login} />
       </Switch>
     </div >
   );

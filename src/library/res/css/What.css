@@ -1,5 +1,6 @@
 .what {
   height: 100vh;
+  position: relative;
 }
 
 .what-text {
@@ -16,7 +17,16 @@
   font-family: "Merriweather";
   font-size: 1.4rem;
   margin-left: 10rem;
-  max-width: 70rem;
+  max-width: 60rem;
   line-height: 43px;
   letter-spacing: 0.2px;
+}
+
+.secureImage {
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  z-index: -1;
+  opacity: 0.5;
+  width: 50rem;
 }

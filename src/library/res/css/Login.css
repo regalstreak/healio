@@ -1,0 +1,17 @@
+.logo-login {
+  display: flex;
+  flex: 0.5;
+  font-family: "Raleway", sans-serif;
+  font-size: 3rem;
+  letter-spacing: 6px;
+  color: #22242b;
+  margin: 2rem;
+}
+
+.login-image {
+    width: 35rem;
+    position: absolute;
+    left: 20rem;
+    top: 15rem;
+    opacity: 0.9;
+}

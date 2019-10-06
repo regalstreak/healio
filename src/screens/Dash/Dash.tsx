@@ -10,7 +10,6 @@ export default (props: IDashProps) => {
     return (
         <div>
             <Sidebar />
-            <div>Hello Dash</div>
             <ResearchList />
         </div>
     )
