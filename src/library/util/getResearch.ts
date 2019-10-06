@@ -10,15 +10,15 @@ const getResearch = async () => {
     let data = await fact.methods.getResearchlist().call();
     console.log(data);
     
-    data.forEach(async (d) => {
+    for(let i = 0; i < data.length; i++) {
         let instance = new web3.eth.Contract(
             // @ts-ignore: Unreachable code errorS
-            JSON.parse(Research.interface), d);
+            JSON.parse(Research.interface), data[i]);
 
         let tempp:any = await instance
         let temp:any = await tempp.methods.getResearchInfo().call();
         fulldata.push(temp);
-    })
+    }
     return fulldata;
 }
 
