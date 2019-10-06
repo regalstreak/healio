@@ -1,0 +1,22 @@
+.what {
+  height: 100vh;
+}
+
+.what-text {
+  margin-top: 6rem;
+  font-family: "Raleway", sans-serif;
+  font-size: 3rem;
+  letter-spacing: 3px;
+  margin-left: 10rem;
+}
+
+.what-desc {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-family: "Merriweather";
+  font-size: 1.4rem;
+  margin-left: 10rem;
+  max-width: 70rem;
+  line-height: 43px;
+  letter-spacing: 0.2px;
+}

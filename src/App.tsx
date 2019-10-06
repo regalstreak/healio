@@ -5,18 +5,22 @@ import InfoSearch from './component/InfoSearch';
 import TestTest from './screens/TestTest';
 import { Switch, Route } from 'react-router-dom';
 import MainForm from './component/MainForm';
+import Home from './screens/Home/Home';
+import Dash from './screens/Dash/Dash';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Sidebar />
+
       <Switch>
+        <Route path='/' exact component={Home} />
         <Route path='/app' component={ResearchList} />
         <Route path='/info' component={InfoSearch} />
         <Route path='/form' component={MainForm} />
         <Route path='/testtest' component={TestTest} />
+        <Route path='/dash' component={Dash} />
       </Switch>
-    </div>
+    </div >
   );
 }
 

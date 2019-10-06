@@ -1,0 +1,37 @@
+.who {
+  display: flex;
+  flex-direction: column;
+  margin: 0 3rem;
+}
+
+.singleWho {
+  display: flex;
+  margin: 8rem 4rem;
+}
+
+.singleImage {
+  width: 40rem;
+  margin-right: 8rem;
+}
+
+.singleImageLeft {
+  width: 40rem;
+  margin-left: 8rem;
+}
+
+.singleHeading {
+  font-family: "Raleway", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 3px;
+}
+
+.singleText {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-family: "Merriweather";
+  font-weight: 500;
+  font-size: 1.4rem;
+  max-width: 60rem;
+  line-height: 43px;
+  letter-spacing: 0.2px;
+}
