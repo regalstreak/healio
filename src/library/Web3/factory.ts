@@ -11,6 +11,6 @@ async function setup() {
     console.log(web3);
     const instance = new web3.eth.Contract(
         // @ts-ignore: Unreachable code error
-        Factory.abi, "0x4678f906f11B5b6A5D041B51235f7b2B9a668Eed");
+        JSON.parse(Factory.interface), "0x6A2fc6154a5ff1261c495407cc500c1b07d034b0");
     return instance;
 }

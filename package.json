@@ -15,7 +15,7 @@
     "react-dom": "^16.10.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
-    "solc": "0.5.8",
+    "solc": "0.4.25",
     "typescript": "3.6.3",
     "web3": "^1.2.1"
   },
