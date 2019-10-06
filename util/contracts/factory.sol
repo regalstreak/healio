@@ -54,24 +54,32 @@ pragma experimental ABIEncoderV2;
         mapping(address=>address) public _researchMapping;
         mapping(address=>address) public _buyerMapping;
         mapping(address=>address) public _userMapping;
+        address[]  _researchContractAddresses;
         //creates a new researcher contract and return its contract address
-        function newResearch (string memory name,string memory research_name,string memory field)constant returns(address){
+        function newResearch (string  name,string  research_name,string  field)public returns(address){
             address new_research=new Research(name,research_name,field,msg.sender,address(this));
             _researchMapping[msg.sender]=new_research;
+            _researchContractAddresses.push(new_research);
             return new_research;
         }
-        function newBuyer(string memory name)constant  returns(address){
+        function newBuyer(string  name)public returns(address){
             address new_Buyer= new Buyer(name,msg.sender);
             _buyerMapping[msg.sender]=new_Buyer;
             return new_Buyer;     
         }
-        function newUser(string memory name) constant  returns(address){
+        function newUser(string  name)public returns(address){
             address new_User= new User(name,msg.sender);
             _userMapping[msg.sender]=new_User;
             return new_User;     
         }
         function getUserContractAddress(address userAddress) public view returns(address){
             return _userMapping[userAddress];
+        }
+        function getResearchContractAddreess(address researchAddress)public view returns(address){
+            
+        }
+        function getResearchlist() public view returns(address[]){
+            return _researchContractAddresses;
         }
     }
     contract Research {
@@ -127,7 +135,7 @@ pragma experimental ABIEncoderV2;
         
         
         //returns basic research informationo
-        function getResearchInfo() public view onlyOwner returns(string memory,string memory,string memory,uint,int){
+        function getResearchInfo() public view returns(string memory,string memory,string memory,uint,int){
             return( 
                 _name,
                 _researcherName,
