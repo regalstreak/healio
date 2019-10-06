@@ -1,11 +1,25 @@
 import getWeb3 from '../Web3/getWeb3';
 import Factory from '../Web3/factory';
+import Research from '../Web3/build/Research.json';
 
 const getResearch = async () => {
+    let fulldata:any = []
+    const web3:any = await getWeb3();
     let list = []
     let fact:any = await Factory;
     let data = await fact.methods.getResearchlist().call();
-    return data;
+    console.log(data);
+    
+    data.forEach(async (d) => {
+        let instance = new web3.eth.Contract(
+            // @ts-ignore: Unreachable code errorS
+            JSON.parse(Research.interface), d);
+
+        let tempp:any = await instance
+        let temp:any = await tempp.methods.getResearchInfo().call();
+        fulldata.push(temp);
+    })
+    return fulldata;
 }
 
 export default getResearch
