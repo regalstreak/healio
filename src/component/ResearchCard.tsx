@@ -5,13 +5,14 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   card: {
-		minWidth: 275,
-		marginTop: '3%',
-		marginLeft: '5%',
-		marginRight: '5%'
+    minWidth: 275,
+    marginTop: '3%',
+    marginLeft: '5%',
+    marginRight: '5%'
   },
   bullet: {
     display: 'inline-block',
@@ -26,30 +27,27 @@ const useStyles = makeStyles({
   },
 });
 
-export default function SimpleCard() {
+export default function SimpleCard(props: any) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <Card className={classes.card}>
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          #cardiovascular
-        </Typography>
         <Typography variant="h5" component="h2">
-          Research Name
+          {props.name}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          Researcher Name
+          Cost: {props.cost}
         </Typography>
-        <Typography variant="body2" component="p">  
-        Total funds
-        <br/>
-        Total patientsd 
+        <Typography variant="body2" component="p">
+          Researcher Name: {'a'}
+          <br />
+          Data: {'100'}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <Button size="small" component={Link} to={'/info'}>Learn More</Button>
       </CardActions>
     </Card>
   );

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import ResearchCard from './ResearchCard';
 import Grid from '@material-ui/core/Grid';
+import getResearch from '../library/util/getResearch';
 
 interface INewComponentProps {
 
@@ -11,6 +12,40 @@ interface INewComponentProps {
 
 export default (props: INewComponentProps) => {
 	const classes = useStyles();
+	const [researchList, setResearchList] = useState([]);
+	const [allResearchList, setallResearchList] = useState([]);
+	useEffect(() => {
+		getResearch()
+			.then((allResearch: any) => {
+				console.log(allResearch);
+				setallResearchList(allResearch);
+			})
+			.catch(console.log);
+	}, []);
+	let indivusualResearch = (
+		<Grid
+			container
+			spacing={0}
+			direction="row"
+			justify="center"
+			alignItems="center"
+		>
+			<Grid item xs>
+				<ResearchCard
+					name={'ani'}
+					cost={'bha'}
+				/>
+			</Grid>
+		</Grid>
+	);
+	useEffect(() => {
+		if (allResearchList) {
+			let researchListabc: any = allResearchList.map(res => {
+				return indivusualResearch;
+			});
+			setResearchList(researchListabc);
+		}
+	}, [allResearchList]);
 	return (
 		<div className={classes.outerouter}>
 			<div className={classes.outer}>
@@ -28,28 +63,7 @@ export default (props: INewComponentProps) => {
 					/>
 				</div>
 			</div>
-			<Grid
-				container
-				spacing={0}
-				direction="row"
-				justify="center"
-				alignItems="center"
-			>
-				<Grid item xs>
-					<ResearchCard />
-				</Grid>
-			</Grid>
-			<Grid
-				container
-				spacing={0}
-				direction="row"
-				justify="center"
-				alignItems="center"
-			>
-				<Grid item xs>
-					<ResearchCard />
-				</Grid>
-			</Grid>
+			{researchList}
 		</div>
 	)
 }
