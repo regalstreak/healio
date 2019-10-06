@@ -22,7 +22,7 @@ export default (props: INewComponentProps) => {
 			})
 			.catch(console.log);
 	}, []);
-	let indivusualResearch = (
+	let indivusualResearch = (index: number) => (
 		<Grid
 			container
 			spacing={0}
@@ -32,16 +32,19 @@ export default (props: INewComponentProps) => {
 		>
 			<Grid item xs>
 				<ResearchCard
-					name={'ani'}
-					cost={'bha'}
+					name={allResearchList[index]['0']}
+					researcherName={allResearchList[index]['1']}
+					field={allResearchList[index]['2']}
+					cost={allResearchList[index]['3']}
+					noOfResults={allResearchList[index]['4']}
 				/>
 			</Grid>
 		</Grid>
 	);
 	useEffect(() => {
 		if (allResearchList) {
-			let researchListabc: any = allResearchList.map(res => {
-				return indivusualResearch;
+			let researchListabc: any = allResearchList.map((res, i) => {
+				return indivusualResearch(i);
 			});
 			setResearchList(researchListabc);
 		}

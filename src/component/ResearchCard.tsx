@@ -41,9 +41,9 @@ export default function SimpleCard(props: any) {
           Cost: {props.cost}
         </Typography>
         <Typography variant="body2" component="p">
-          Researcher Name: {'a'}
+          Researcher Name: {props.researcherName}
           <br />
-          Data: {'100'}
+          Data: {props.noOfResults}
         </Typography>
       </CardContent>
       <CardActions>
