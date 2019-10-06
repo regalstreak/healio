@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
+import addResearch from '../library/util/addResearch';
+import getWeb3 from '../library/Web3/getWeb3';
 
 interface INewComponentProps {
 
@@ -14,12 +17,24 @@ export default (props: INewComponentProps) => {
 	const [fields, setFields] = useState(['']);
 	const [value, setValues] = useState(['']);
 	let inputList: any = [];
+	const web3: any = useRef();
+	const account: any = useRef();
+	useEffect(() => {
+		const run = async () => {
+			web3.current = await getWeb3();
+			const accounts = await web3.current.eth.getAccounts();
+			account.current = accounts[0];
+			console.log(account.current);
+		}
+		run();
+	}, []);
 	let indiInput = (index: number) => (
 		<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
 			<TextField
 				id="standard-name"
 				className={classes.textField}
 				value={fields[index]}
+				placeholder='Add Field'
 				// @ts-ignore: Unreachable code error
 				onChange={(text: any) => {
 					text.persist();
@@ -42,6 +57,7 @@ export default (props: INewComponentProps) => {
 				id="standard-name"
 				className={classes.textField}
 				value={value[index]}
+				placeholder='Add Value'
 				// @ts-ignore: Unreachable code error
 				onChange={(text: any) => {
 					text.persist();
@@ -79,6 +95,11 @@ export default (props: INewComponentProps) => {
 					<AddIcon />
 				</Fab>
 			</div>
+			<Button variant="contained" color="default" className={classes.button} onClick={() => {
+				addResearch('Name', 'ResearcherName', 'Cancer', account.current);
+			}}>
+				Submit
+      </Button>
 		</div>
 	)
 }
@@ -98,6 +119,12 @@ const useStyles = makeStyles((theme: Theme) =>
 		outer: {
 			width: '40vw',
 			marginLeft: '30vw'
-		}
+		},
+		button: {
+			margin: theme.spacing(1),
+		},
+		input: {
+			display: 'none',
+		},
 	}),
 );
